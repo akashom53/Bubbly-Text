@@ -11,6 +11,8 @@ function Vehicle(x, y) {
 
   this.zeroVector = createVector(0, 0);
 
+  this.xOff = 0;
+
   this.color = {
     r: random(0, 255),
     g: random(0, 255),
@@ -25,15 +27,16 @@ Vehicle.prototype.update = function() {
   this.acc.mult(0);
 }
 
-Vehicle.prototype.show = function() {
+Vehicle.prototype.show = function(xOff, yOff) {
   stroke(this.color.r, this.color.g, this.color.b);
   strokeWeight(this.r);
-  point(this.pos.x, this.pos.y);
+  this.xOff = xOff;
+  point(this.pos.x - xOff, this.pos.y);
 }
 
 Vehicle.prototype.applyBehaviors = function() {
   var arrive = this.arrive(this.target);
-  var mouse = createVector(mouseX, mouseY);
+  var mouse = createVector(mouseX + xOff, mouseY);
   var flee = this.flee(mouse);
 
   arrive.mult(1);
@@ -49,7 +52,7 @@ Vehicle.prototype.applyForce = function(force) {
 
 Vehicle.prototype.flee = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
-  if (desired.mag() < 50) {
+  if (desired.mag() < 100) {
     desired.setMag(this.maxSpeed);
     desired.mult(-1);
     var steer = p5.Vector.sub(desired, this.vel);

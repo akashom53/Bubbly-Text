@@ -1,13 +1,19 @@
 var font;
 var vehicles = [];
 
+var xOff;
+
 function preload() {
   font = loadFont('montserrat.ttf');
 }
 
 function setup() {
-  createCanvas(800, 300);
-  var points = font.textToPoints('akash', 100, 200, 192);
+  createCanvas(window.innerWidth, window.innerHeight);
+  var bounds = font.textBounds('akash', width / 2, height / 2, 192);
+
+  xOff = bounds.x - bounds.w / 2;
+
+  var points = font.textToPoints('akash', width / 2, height / 2, 255, CENTER, CENTER);
   for (var i = 0; i < points.length; i++) {
     var p = points[i];
     vehicles[i] = new Vehicle(p.x, p.y);
@@ -15,10 +21,10 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(51);
   for (var i = 0; i < vehicles.length; i++) {
     vehicles[i].applyBehaviors();
     vehicles[i].update();
-    vehicles[i].show();
+    vehicles[i].show(xOff);
   }
 }
