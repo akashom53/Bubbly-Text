@@ -5,7 +5,8 @@ Fun with steering algorithms! I have used javascript with p5.js to implement ste
 Here are the basic steps:
 * Get the list of points for a particular text
 ```javascript
-var points = font.textToPoints('akash', 100, 200, 192);```
+var points = font.textToPoints('akash', 100, 200, 192);
+```
 * Add autonomous agents to the points (vehicles)
 ```javascript
 for (var i = 0; i < points.length; i++) {
