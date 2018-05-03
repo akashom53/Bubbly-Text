@@ -10,6 +10,12 @@ function Vehicle(x, y) {
   this.maxForce = 1;
 
   this.zeroVector = createVector(0, 0);
+
+  this.color = {
+    r: random(0, 255),
+    g: random(0, 255),
+    b: random(0, 255)
+  };
 }
 
 Vehicle.prototype.update = function() {
@@ -20,7 +26,7 @@ Vehicle.prototype.update = function() {
 }
 
 Vehicle.prototype.show = function() {
-  stroke(255);
+  stroke(this.color.r, this.color.g, this.color.b);
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }

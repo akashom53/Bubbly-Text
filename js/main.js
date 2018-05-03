@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(255);
   for (var i = 0; i < vehicles.length; i++) {
     vehicles[i].applyBehaviors();
     vehicles[i].update();
