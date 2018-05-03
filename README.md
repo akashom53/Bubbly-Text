@@ -1,5 +1,5 @@
 # Bubbly-Test
-Fun with steering algorithms! I have used javascript with p5.js to implement steering algorithms in this project. Check out this [Live link](https://akashom53.github.io/Bubbly-Test/).
+Fun with steering algorithms! I have used javascript with p5.js to implement steering algorithms in this project. Check out this [Live link](https://akashom53.github.io/Bubbly-Text/).
 
 ### Details
 Here are the basic steps:
